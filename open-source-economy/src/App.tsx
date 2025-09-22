@@ -1,11 +1,12 @@
+import Layout from "./components/Layout";
 import HomePage from "./pages/HomePage";
 import "./App.css";
 
 function App() {
   return (
-    <div className="min-h-screen bg-dark-400">
+    <Layout>
       <HomePage />
-    </div>
+    </Layout>
   );
 }
 
