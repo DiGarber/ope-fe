@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Keep output.css for Vercel deployment
+# src/output.css
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
