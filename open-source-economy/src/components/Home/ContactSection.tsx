@@ -7,7 +7,6 @@ import {
   buttonStyles,
 } from "../../styles/components";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
-import api from "../../services/axios";
 import { createNewsletterSubscription } from "../../services/modules/NewsletterSubscriptionsService";
 
 interface ContactFormData {
@@ -77,7 +76,7 @@ const ContactSection = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      mutation.mutate(formData);
+      mutation.mutate();
     }
   };
 
