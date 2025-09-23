@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { buttonStyles, containerStyles } from "../styles/components";
 import { Menu, X } from "lucide-react";
 
@@ -7,10 +6,10 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigation = [
-    { name: "Home", href: "/" },
-    { name: "About Us", href: "/about" },
-    { name: "Solutions", href: "/solutions" },
-    { name: "Contact Us", href: "/contact" },
+    { name: "Home", href: "#" },
+    { name: "About Us", href: "#about" },
+    { name: "Solutions", href: "#solutions" },
+    { name: "Contact Us", href: "#contact" },
   ];
 
   return (
@@ -35,14 +34,14 @@ const Header = () => {
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               {navigation.map((item) => (
-                <Link
+                <a
                   key={item.name}
-                  to={item.href}
+                  href={item.href}
                   className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-accent-pink focus:ring-opacity-50 rounded-md"
                   aria-label={`Navigate to ${item.name}`}
                 >
                   {item.name}
-                </Link>
+                </a>
               ))}
             </div>
           </div>
@@ -79,15 +78,15 @@ const Header = () => {
           <div className="md:hidden" role="menu">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-dark-300 rounded-lg mt-2">
               {navigation.map((item) => (
-                <Link
+                <a
                   key={item.name}
-                  to={item.href}
+                  href={item.href}
                   className="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-accent-pink focus:ring-opacity-50"
                   role="menuitem"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
-                </Link>
+                </a>
               ))}
               <button
                 className={`${buttonStyles.primary} w-full mt-4`}

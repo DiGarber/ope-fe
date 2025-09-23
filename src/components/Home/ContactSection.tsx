@@ -7,7 +7,7 @@ import {
   buttonStyles,
 } from "../../styles/components";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
-import api from "../../services/axios";
+import { createNewsletterSubscription } from "../../services/modules/NewsletterSubscriptionsService";
 
 interface ContactFormData {
   fullName: string;
@@ -33,14 +33,16 @@ const ContactSection = () => {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // Mock API call - replace with actual endpoint
-  const submitForm = async (data: ContactFormData) => {
-    const response = await api.post("/contact", data);
-    return response.data;
-  };
-
   const mutation = useMutation({
-    mutationFn: submitForm,
+    mutationFn: async () => {
+      const response = await createNewsletterSubscription({
+        email: formData.email,
+        name: formData.fullName,
+        message: formData.message,
+        linkedin: formData.linkedin,
+      });
+      return response.data;
+    },
     onSuccess: () => {
       setIsSubmitted(true);
       setFormData({ fullName: "", email: "", linkedin: "", message: "" });
@@ -74,7 +76,7 @@ const ContactSection = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      mutation.mutate(formData);
+      mutation.mutate();
     }
   };
 

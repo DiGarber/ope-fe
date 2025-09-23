@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { containerStyles, textStyles } from "../styles/components";
 import { Github, Twitter, Linkedin, Mail, Shield } from "lucide-react";
 
@@ -7,28 +6,28 @@ const Footer = () => {
 
   const footerLinks = {
     company: [
-      { name: "About Us", href: "/about" },
-      { name: "Our Mission", href: "/about" },
-      { name: "Careers", href: "/careers" },
-      { name: "Contact", href: "/contact" },
+      { name: "About Us", href: "#about" },
+      { name: "Our Mission", href: "#mission" },
+      { name: "Careers", href: "#careers" },
+      { name: "Contact", href: "#contact" },
     ],
     solutions: [
-      { name: "Security Analysis", href: "/solutions" },
-      { name: "Risk Assessment", href: "/solutions" },
-      { name: "Vulnerability Alerts", href: "/solutions" },
-      { name: "Support Services", href: "/solutions" },
+      { name: "Security Analysis", href: "#solutions" },
+      { name: "Risk Assessment", href: "#risk" },
+      { name: "Vulnerability Alerts", href: "#alerts" },
+      { name: "Support Services", href: "#support" },
     ],
     resources: [
-      { name: "Documentation", href: "/docs" },
-      { name: "Blog", href: "/blog" },
-      { name: "Case Studies", href: "/case-studies" },
-      { name: "Security Reports", href: "/reports" },
+      { name: "Documentation", href: "#docs" },
+      { name: "Blog", href: "#blog" },
+      { name: "Case Studies", href: "#cases" },
+      { name: "Security Reports", href: "#reports" },
     ],
     legal: [
-      { name: "Privacy Policy", href: "/privacy" },
-      { name: "Terms of Service", href: "/terms" },
-      { name: "Cookie Policy", href: "/cookies" },
-      { name: "Security Policy", href: "/security" },
+      { name: "Privacy Policy", href: "#privacy" },
+      { name: "Terms of Service", href: "#terms" },
+      { name: "Cookie Policy", href: "#cookies" },
+      { name: "Security Policy", href: "#security" },
     ],
   };
 
@@ -110,12 +109,12 @@ const Footer = () => {
               <ul className="space-y-3" role="list">
                 {footerLinks.company.map((link) => (
                   <li key={link.name}>
-                    <Link
-                      to={link.href}
+                    <a
+                      href={link.href}
                       className="text-gray-400 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-accent-pink focus:ring-opacity-50 rounded-md"
                     >
                       {link.name}
-                    </Link>
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -129,12 +128,12 @@ const Footer = () => {
               <ul className="space-y-3" role="list">
                 {footerLinks.solutions.map((link) => (
                   <li key={link.name}>
-                    <Link
-                      to={link.href}
+                    <a
+                      href={link.href}
                       className="text-gray-400 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-accent-pink focus:ring-opacity-50 rounded-md"
                     >
                       {link.name}
-                    </Link>
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -148,12 +147,12 @@ const Footer = () => {
               <ul className="space-y-3" role="list">
                 {footerLinks.resources.map((link) => (
                   <li key={link.name}>
-                    <Link
-                      to={link.href}
+                    <a
+                      href={link.href}
                       className="text-gray-400 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-accent-pink focus:ring-opacity-50 rounded-md"
                     >
                       {link.name}
-                    </Link>
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -173,12 +172,12 @@ const Footer = () => {
             <div className="flex flex-wrap justify-center md:justify-end space-x-6">
               {footerLinks.legal.map((link, index) => (
                 <span key={link.name} className="flex items-center">
-                  <Link
-                    to={link.href}
+                  <a
+                    href={link.href}
                     className="text-gray-400 hover:text-white text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-accent-pink focus:ring-opacity-50 rounded-md"
                   >
                     {link.name}
-                  </Link>
+                  </a>
                   {index < footerLinks.legal.length - 1 && (
                     <span className="text-gray-600 mx-3">•</span>
                   )}
