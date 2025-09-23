@@ -2,8 +2,5 @@
   "framework": "vite",
   "outputDirectory": "dist",
   "installCommand": "npm ci",
-  "env": {
-    "NODE_ENV": "production"
-  },
-  "buildCommand": "rm -rf dist && npm run build"
+  "buildCommand": "npm run build"
 }
